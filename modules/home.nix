@@ -27,6 +27,7 @@
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
   };
+
   programs.starship = {
     enable = true;
   };

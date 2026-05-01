@@ -1,6 +1,14 @@
 { pkgs, ... }: {
   environment.systemPackages = [
-    pkgs.git
+    (pkgs.fenix.stable.withComponents [
+      "cargo"
+      "clippy"
+      "rust-src"
+      "rustc"
+      "rustfmt"
+    ])
+    pkgs.fenix.stable.rust-analyzer
+
     pkgs.neovim
     pkgs.btop
     pkgs.fastfetch
@@ -8,7 +16,6 @@
     pkgs.gnupg
     pkgs.imagemagick
     pkgs.lazygit
-    pkgs.starship
     pkgs.tmux
     pkgs.yazi
     pkgs.typst
