@@ -22,6 +22,7 @@
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
       home-manager.users.kylehuang = import ./modules/home.nix;
+      home-manager.backupFileExtension = "backup";
       
       system.primaryUser = "kylehuang";
       users.users.kylehuang = {

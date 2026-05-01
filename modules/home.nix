@@ -16,4 +16,19 @@
       };
     };
   };
+
+  services.gpg-agent = {
+    enable = true;
+    pinentry.package = pkgs.pinentry-curses;
+  };
+
+  programs.zsh = {
+    enable = true;
+    syntaxHighlighting.enable = true;
+    autosuggestion.enable = true;
+
+    initContent = ''
+      export GPG_TTY=$(tty)
+    '';
+  };
 }

@@ -11,12 +11,11 @@
     pkgs.starship
     pkgs.tmux
     pkgs.yazi
-    pkgs.zsh-syntax-highlighting
     pkgs.typst
+    pkgs.pinentry-curses
   ];
-
+  
   programs.zsh.enable = true;
-  programs.zsh.enableSyntaxHighlighting = true;
 
   system.defaults = {
     dock = {
