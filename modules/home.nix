@@ -26,9 +26,8 @@
     enable = true;
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
-
-    initContent = ''
-      export GPG_TTY=$(tty)
-    '';
+  };
+  programs.starship = {
+    enable = true;
   };
 }
