@@ -1,6 +1,3 @@
 [submodule "dotfiles/nvim"]
 	path = dotfiles/nvim
 	url = git@github.com:thekylehuang/nvim-config.git
-[submodule "dotfiles/tmux"]
-	path = dotfiles/tmux
-	url = git@github.com:thekylehuang/cole-tmux.git

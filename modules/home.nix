@@ -4,7 +4,6 @@
   home.homeDirectory = "/Users/kylehuang";
 
   home.file.".config/nvim".source = ../dotfiles/nvim;
-  home.file.".config/tmux".source = ../dotfiles/tmux;
 
   home.packages = [
     pkgs.fnm
@@ -91,6 +90,15 @@
       };
     };
   };
+
+  programs.tmux = {
+    enable = true;
+    extraConfig = ''
+      set -g @plugin 'tmux-plugins/tpm'
+      set -g @plugin 'thekylehuang/cole-tmux'
+      run '~/.tmux/plugins/tpm/tpm'
+    '';
+  };
   
   programs.yazi = {
     enable = true;
@@ -98,6 +106,19 @@
 
     flavors = {
       cole = ../dotfiles/yazi/flavors/cole.yazi;
+    };
+
+    theme = {
+      flavor = {
+        dark = "cole";
+      };
+    };
+
+    settings = {
+      mgr = {
+        show_symlink = true;
+        show_hidden  = true;
+      };
     };
   };
 

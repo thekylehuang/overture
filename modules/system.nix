@@ -15,7 +15,6 @@
     pkgs.gnupg
     pkgs.imagemagick
     pkgs.lazygit
-    pkgs.tmux
     pkgs.typst
     pkgs.pinentry-curses
     pkgs.ripgrep
