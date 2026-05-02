@@ -19,6 +19,7 @@
     pkgs.yazi
     pkgs.typst
     pkgs.pinentry-curses
+    pkgs.ripgrep
   ];
   
   programs.zsh.enable = true;
