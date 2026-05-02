@@ -59,6 +59,11 @@
 
   programs.iamb = {
     enable = true;
+    settings = {
+      profiles.user = {
+        user_id = "@thekylehuang:matrix.org";
+      };
+    };
   };
 
   programs.starship = {
