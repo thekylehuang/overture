@@ -2,7 +2,10 @@
   home.stateVersion = "26.05";
   home.username = "kylehuang";
   home.homeDirectory = "/Users/kylehuang";
+
   home.file.".config/nvim".source = ../dotfiles/nvim;
+  home.file.".config/tmux".source = ../dotfiles/tmux;
+
   home.packages = [
     pkgs.fnm
     pkgs.pnpm
