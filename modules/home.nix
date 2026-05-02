@@ -21,7 +21,8 @@
       logo = {
         source = "nixos";
         padding = {
-          right = 2;
+          right = 6;
+          top = 2;
         };
       };
       modules = [
@@ -29,7 +30,6 @@
         "separator"
         "os"
         "kernel"
-        "uptime"
         "packages"
         "shell"
         "de"
@@ -37,6 +37,7 @@
         "cpu"
         "gpu"
         "memory"
+        "break"
         "colors"
       ];
     };
