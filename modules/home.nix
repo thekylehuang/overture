@@ -29,14 +29,18 @@
         source = "nixos";
         padding = {
           right = 6;
-          top = 2;
         };
       };
       modules = [
+        "break"
+        "break"
+        "break"
+        "break"
         "title"
         "separator"
         "os"
         "kernel"
+        "uptime"
         "shell"
         "de"
         "terminal"
