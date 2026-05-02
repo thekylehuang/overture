@@ -68,6 +68,28 @@
 
   programs.starship = {
     enable = true;
+    settings = {
+      add_newline = true;
+      format = ''
+      $directory$git_branch$git_status
+      $character
+      '';
+      directory = {
+        style = "#f2e6cf";
+        format = "[$path]($style)[$read_only]($read_only_style) ";
+      };
+      git_branch = {
+        format = "[git:$branch](#858585) ";
+      };
+      git_status = {
+        style = "#858585";
+      };
+      character = {
+        format = "$symbol ";
+        success_symbol = "[󰘧](#b38d59) ";
+        error_symbol = "[󱄅](#cc5d4b) ";
+      };
+    };
   };
 
   programs.zsh = {
