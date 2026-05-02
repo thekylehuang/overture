@@ -16,6 +16,33 @@
     pinentry.package = pkgs.pinentry-curses;
   };
 
+  programs.fastfetch = {
+    enable = true;
+    settings = {
+      logo = {
+        source = "nixos";
+        padding = {
+          right = 2;
+        };
+      };
+      modules = [
+        "title"
+        "separator"
+        "os"
+        "kernel"
+        "uptime"
+        "packages"
+        "shell"
+        "de"
+        "terminal"
+        "cpu"
+        "gpu"
+        "memory"
+        "colors"
+      ];
+    };
+  };
+
   programs.git = {
     enable = true;
     settings = {
