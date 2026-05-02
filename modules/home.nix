@@ -117,7 +117,6 @@
     settings = {
       mgr = {
         show_symlink = true;
-        show_hidden  = true;
       };
     };
   };
