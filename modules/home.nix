@@ -57,6 +57,14 @@
     };
   };
 
+  programs.iamb = {
+    enable = true;
+  };
+
+  programs.starship = {
+    enable = true;
+  };
+
   programs.zsh = {
     enable = true;
     syntaxHighlighting.enable = true;
@@ -64,9 +72,5 @@
     initContent = ''
       eval "$(fnm env --use-on-cd --shell zsh)" 
     '';
-  };
-
-  programs.starship = {
-    enable = true;
   };
 }
