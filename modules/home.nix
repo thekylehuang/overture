@@ -91,6 +91,15 @@
       };
     };
   };
+  
+  programs.yazi = {
+    enable = true;
+    enableZshIntegration = true;
+
+    flavors = {
+      cole = ../dotfiles/yazi/flavors/cole.yazi;
+    };
+  };
 
   programs.zsh = {
     enable = true;
