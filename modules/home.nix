@@ -18,6 +18,13 @@
   programs.fastfetch = {
     enable = true;
     settings = {
+      display = {
+        color = {
+          keys = "yellow";
+          title = "39";
+          separator = "yellow";
+        };
+      };
       logo = {
         source = "nixos";
         padding = {
@@ -30,13 +37,11 @@
         "separator"
         "os"
         "kernel"
-        "packages"
         "shell"
         "de"
         "terminal"
         "cpu"
         "gpu"
-        "memory"
         "break"
         "colors"
       ];
