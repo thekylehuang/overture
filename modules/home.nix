@@ -103,9 +103,27 @@
 
   programs.tmux = {
     enable = true;
+    keyMode = "vi";
+    customPaneNavigationAndResize = true;
     extraConfig = ''
       set -g @plugin 'tmux-plugins/tpm'
       set -g @plugin 'thekylehuang/cole-tmux'
+        
+      unbind '"'
+      unbind %
+      bind | split-window -h -c "#{pane_current_path}"
+      bind - split-window -v -c "#{pane_current_path}"
+
+      bind h select-pane -L
+      bind j select-pane -D
+      bind k select-pane -U
+      bind l select-pane -R
+
+      bind H resize-pane -L 5
+      bind J resize-pane -D 5
+      bind K resize-pane -U 5
+      bind L resize-pane -R 5
+
       run '~/.tmux/plugins/tpm/tpm'
     '';
   };
