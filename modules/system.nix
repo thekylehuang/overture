@@ -11,7 +11,6 @@
 
     pkgs.neovim
     pkgs.btop
-    pkgs.fastfetch
     pkgs.ffmpeg
     pkgs.gnupg
     pkgs.imagemagick
