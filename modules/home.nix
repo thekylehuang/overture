@@ -29,9 +29,11 @@
         source = "nixos";
         padding = {
           right = 6;
+          top = 1;
         };
       };
       modules = [
+        "break"
         "break"
         "break"
         "break"
