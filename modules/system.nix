@@ -18,6 +18,7 @@
     pkgs.typst
     pkgs.pinentry-curses
     pkgs.ripgrep
+    pkgs.russ
   ];
   
   programs.zsh.enable = true;
