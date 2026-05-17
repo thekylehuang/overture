@@ -7,7 +7,6 @@
 
   home.packages = [
     pkgs.fnm
-    pkgs.pnpm
   ];
  
   services.gpg-agent = {
