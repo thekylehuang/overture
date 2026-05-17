@@ -21,7 +21,6 @@
     pkgs.russ
     pkgs.tree-sitter
     pkgs.uv
-    pkgs.yt-dlp
   ];
   
   programs.zsh.enable = true;
