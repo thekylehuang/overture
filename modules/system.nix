@@ -17,6 +17,7 @@
     pkgs.lazygit
     pkgs.typst
     pkgs.pinentry-curses
+    pkgs.qemu
     pkgs.ripgrep
     pkgs.russ
     pkgs.tree-sitter
