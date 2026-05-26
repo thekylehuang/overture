@@ -2,7 +2,7 @@
 
 ![Dashboard Screenshot](https://github.com/thekylehuang/nvim/releases/download/media/dashboard.png)
 
-A minimal Neovim configuration for my web development and Rust workflows. This is built on top of [Lazy.nvim](https://github.com/LazyVim/LazyVim). The colorscheme used is Cole.
+A minimal Neovim configuration for my web development and Rust workflows. This was originally built on top of [Lazy.nvim](https://github.com/LazyVim/LazyVim) but has moved to the native plugin manager. The colorscheme used is Cole.
 
 ## Plugins Used
 

@@ -12,6 +12,7 @@
     pkgs.neovim
     pkgs.btop
     pkgs.ffmpeg
+    pkgs.fzf
     pkgs.gnupg
     pkgs.imagemagick
     pkgs.lazygit
@@ -22,6 +23,11 @@
     pkgs.russ
     pkgs.tree-sitter
     pkgs.uv
+
+    pkgs.lua-language-server
+    pkgs.pyright
+    pkgs.typescript-language-server
+    pkgs.tinymist
   ];
   
   programs.zsh.enable = true;
