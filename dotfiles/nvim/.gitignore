@@ -1,8 +1,0 @@
-# Lockfile
-lazy-lock.json
-
-*.log
-*.luac
-
-.DS_Store
-Thumbs.db

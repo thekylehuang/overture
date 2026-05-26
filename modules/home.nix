@@ -3,8 +3,6 @@
   home.username = "kylehuang";
   home.homeDirectory = "/Users/kylehuang";
 
-  home.file.".config/nvim".source = ../dotfiles/nvim;
-
   home.packages = [
     pkgs.fnm
   ];
