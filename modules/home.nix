@@ -250,7 +250,7 @@ in
               desc = "Open Config",
               key = "c",
               key_format = " %s",
-              action = "e ~/.config/nvim/init.lua"
+              action = "e ~/.config/overture/modules/home.nix"
             }
           },
           footer = { "\"One is not born, but rather becomes, a rustacean.\"" },
