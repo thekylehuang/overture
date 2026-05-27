@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "cole-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1779847286,
+        "narHash": "sha256-piAIwoq7L31CmekeCvdmrTNL7vJb1eLewLROtZtmDD8=",
+        "owner": "thekylehuang",
+        "repo": "cole.nvim",
+        "rev": "fb77b8204c3bd6def814eb2b616a2ec0bdcb263c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "thekylehuang",
+        "repo": "cole.nvim",
+        "type": "github"
+      }
+    },
     "fenix": {
       "inputs": {
         "nixpkgs": [
@@ -80,6 +96,7 @@
     },
     "root": {
       "inputs": {
+        "cole-nvim": "cole-nvim",
         "fenix": "fenix",
         "home-manager": "home-manager",
         "nix-darwin": "nix-darwin",

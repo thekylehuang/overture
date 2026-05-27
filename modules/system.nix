@@ -9,7 +9,6 @@
     ])
     pkgs.fenix.stable.rust-analyzer
 
-    pkgs.neovim
     pkgs.btop
     pkgs.ffmpeg
     pkgs.fzf
@@ -23,7 +22,7 @@
     pkgs.russ
     pkgs.tree-sitter
     pkgs.uv
-
+    
     pkgs.lua-language-server
     pkgs.pyright
     pkgs.typescript-language-server

@@ -12,12 +12,27 @@
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    cole-nvim = {
+      url = "github:thekylehuang/cole.nvim";
+      flake = false;
+    };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, fenix }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, fenix, ... }:
   let
     configuration = { pkgs, ... }: {
-      nixpkgs.overlays = [ fenix.overlays.default ];
+      nixpkgs.overlays = [
+        fenix.overlays.default
+
+        (final: prev: {
+          vimPlugins = prev.vimPlugins // {
+            cole-nvim = final.vimUtils.buildVimPlugin {
+              name = "cole-nvim";
+              src = inputs.cole-nvim;
+            };
+          };
+        })
+      ];
 
       # let Determinate own Nix
       nix.enable = false;
