@@ -30,6 +30,7 @@ in
   home.stateVersion = "26.05";
   home.username = "kylehuang";
   home.homeDirectory = "/Users/kylehuang";
+  home.enableNixpkgsReleaseCheck = false;
 
   home.packages = [
     pkgs.fnm

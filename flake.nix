@@ -5,7 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     fenix = {
@@ -36,8 +36,8 @@
 
       # let Determinate own Nix
       nix.enable = false;
-
       nixpkgs.hostPlatform = "aarch64-darwin";
+      nix.settings.auto-optimise-store = true;
 
       system.configurationRevision = self.rev or self.dirtyRev or null;
 
@@ -45,7 +45,7 @@
       home-manager.useUserPackages = true;
       home-manager.users.kylehuang = import ./modules/home.nix;
       home-manager.backupFileExtension = "backup";
-      
+
       system.primaryUser = "kylehuang";
       users.users.kylehuang = {
         name = "kylehuang";
