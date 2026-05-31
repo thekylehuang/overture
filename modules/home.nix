@@ -242,12 +242,6 @@ in
               action = "enew"
             },
             {
-              desc = "Update Native Plugins",
-              key = "u",
-              key_format = " %s",
-              action = "packupdate"
-            },
-            {
               desc = "Open Config",
               key = "c",
               key_format = " %s",
