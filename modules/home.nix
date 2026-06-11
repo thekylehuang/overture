@@ -32,10 +32,6 @@ in
   home.homeDirectory = "/Users/kylehuang";
   home.enableNixpkgsReleaseCheck = false;
 
-  home.packages = [
-    pkgs.fnm
-  ];
-
   programs.gpg.enable = true;
  
   services.gpg-agent = {
@@ -116,8 +112,9 @@ in
 
       (nvim-treesitter.withPlugins (p: with p; [
         lua
-        rust
+        nix
         python
+        rust
         typescript
       ]))
     ];
@@ -588,8 +585,5 @@ in
     enable = true;
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
-    initContent = ''
-      eval "$(fnm env --use-on-cd --shell zsh)" 
-    '';
   };
 }
