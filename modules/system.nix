@@ -1,14 +1,5 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs; [
-    (fenix.stable.withComponents [
-      "cargo"
-      "clippy"
-      "rust-src"
-      "rustc"
-      "rustfmt"
-    ])
-    fenix.stable.rust-analyzer
-
     btop
     ffmpeg
     fzf

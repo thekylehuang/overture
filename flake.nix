@@ -8,22 +8,16 @@
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    fenix = {
-      url = "github:nix-community/fenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     cole-nvim = {
       url = "github:thekylehuang/cole.nvim";
       flake = false;
     };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, fenix, ... }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, ... }:
   let
     configuration = { pkgs, ... }: {
       nixpkgs.overlays = [
-        fenix.overlays.default
-
         (final: prev: {
           vimPlugins = prev.vimPlugins // {
             cole-nvim = final.vimUtils.buildVimPlugin {
