@@ -31,13 +31,11 @@ in
   home.username = "kylehuang";
   home.homeDirectory = "/Users/kylehuang";
   home.enableNixpkgsReleaseCheck = false;
-
-  programs.gpg.enable = true;
- 
-  services.gpg-agent = {
+  
+  programs.direnv = {
     enable = true;
-    pinentry.package = pkgs.pinentry-curses;
-  };
+    nix-direnv.enable = true;
+  }
 
   programs.fastfetch = {
     enable = true;
@@ -94,6 +92,13 @@ in
         defaultBranch = "main";
       };
     };
+  };
+
+  programs.gpg.enable = true;
+ 
+  services.gpg-agent = {
+    enable = true;
+    pinentry.package = pkgs.pinentry-curses;
   };
 
   programs.neovim = {
