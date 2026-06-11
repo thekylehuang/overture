@@ -279,7 +279,7 @@ in
           Lua = { diagnostics = { globals = { "vim" } } },
         },
       })
-      local servers = { "pyright", "rust_analyzer", "ts_ls", "tinymist" }
+      local servers = { "astro", "lua_ls", "pyright", "rust_analyzer", "tinymist", "ts_ls" }
       for _, server in ipairs(servers) do
         vim.lsp.config(server, { capabilities = capabilities })
       end

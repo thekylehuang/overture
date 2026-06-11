@@ -1,30 +1,31 @@
 { pkgs, ... }: {
-  environment.systemPackages = [
-    (pkgs.fenix.stable.withComponents [
+  environment.systemPackages = with pkgs; [
+    (fenix.stable.withComponents [
       "cargo"
       "clippy"
       "rust-src"
       "rustc"
       "rustfmt"
     ])
-    pkgs.fenix.stable.rust-analyzer
+    fenix.stable.rust-analyzer
 
-    pkgs.btop
-    pkgs.ffmpeg
-    pkgs.fzf
-    pkgs.imagemagick
-    pkgs.lazygit
-    pkgs.typst
-    pkgs.qemu
-    pkgs.ripgrep
-    pkgs.russ
-    pkgs.tree-sitter
-    pkgs.uv
+    btop
+    ffmpeg
+    fzf
+    imagemagick
+    lazygit
+    typst
+    qemu
+    ripgrep
+    russ
+    tree-sitter
+    uv
     
-    pkgs.lua-language-server
-    pkgs.pyright
-    pkgs.typescript-language-server
-    pkgs.tinymist
+    astro-language-server
+    lua-language-server
+    pyright
+    typescript-language-server
+    tinymist
   ];
   
   programs.zsh.enable = true;
