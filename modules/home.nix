@@ -35,6 +35,8 @@ in
   home.packages = [
     pkgs.fnm
   ];
+
+  programs.gpg.enable = true;
  
   services.gpg-agent = {
     enable = true;
@@ -82,6 +84,10 @@ in
 
   programs.git = {
     enable = true;
+    signing = {
+      key = "848B77EBF40D45C8EB95679D2FFB6BEF80136423";
+      signByDefault = true;
+    };
     settings = {
       user = {
         name = "Kyle Huang";

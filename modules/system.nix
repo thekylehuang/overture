@@ -12,11 +12,9 @@
     pkgs.btop
     pkgs.ffmpeg
     pkgs.fzf
-    pkgs.gnupg
     pkgs.imagemagick
     pkgs.lazygit
     pkgs.typst
-    pkgs.pinentry-curses
     pkgs.qemu
     pkgs.ripgrep
     pkgs.russ
