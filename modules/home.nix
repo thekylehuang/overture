@@ -273,17 +273,36 @@ in
       }
       
       local capabilities = require("blink.cmp").get_lsp_capabilities()
-      vim.lsp.config("lua_ls", {
-        capabilities = capabilities,
-        settings = {
-          Lua = { diagnostics = { globals = { "vim" } } },
+      local servers = {
+        astro = { binary = "astro-ls" },
+        pyright = { binary = "pyright" },
+        rust_analyzer = { binary = "rust-analyzer" },
+        tinymist = { binary = "tinymist" },
+        ts_ls = { binary = "typescript-language-server" },
+
+        lua_ls = {
+          binary = "lua-language-server",
+          settings = {
+            Lua = { diagnostics = { globals = { "vim" } } }
+          }
         },
-      })
-      local servers = { "astro", "lua_ls", "pyright", "rust_analyzer", "tinymist", "ts_ls" }
-      for _, server in ipairs(servers) do
-        vim.lsp.config(server, { capabilities = capabilities })
+      }
+      local active_servers = {}
+      
+      for server_name, config in pairs(servers) do
+        if vim.fn.executable(config.binary) == 1 then
+          table.insert(active_servers, server_name)
+
+          vim.lsp.config(server_name, {
+            capabilities = capabilities,
+            settings = config.settings or nil
+          })
+        end
       end
-      vim.lsp.enable(servers)
+      
+      if #active_servers > 0 then
+        vim.lsp.enable(active_servers)
+      end
     '';
   };
 

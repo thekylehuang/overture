@@ -20,12 +20,6 @@
     russ
     tree-sitter
     uv
-    
-    astro-language-server
-    lua-language-server
-    pyright
-    typescript-language-server
-    tinymist
   ];
   
   programs.zsh.enable = true;
