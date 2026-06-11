@@ -105,7 +105,6 @@ in
     plugins = with pkgs.vimPlugins; [
       blink-cmp
       nvim-lspconfig
-      nvim-treesitter
       cole-nvim
       lualine-nvim
       oil-nvim
