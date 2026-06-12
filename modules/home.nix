@@ -276,21 +276,11 @@ in
       
       local capabilities = require("blink.cmp").get_lsp_capabilities()
       local servers = {
-        astro = {
-          binary = "astro-ls",
-          init_options = tsdk_path and {
-            typescript = { tsdk = tsdk_path }
-          } or nil
-        },
+        astro = { binary = "astro-ls" },
         pyright = { binary = "pyright" },
         rust_analyzer = { binary = "rust-analyzer" },
         tinymist = { binary = "tinymist" },
-        ts_ls = {
-          binary = "typescript-language-server",
-          init_options = tsdk_path and {
-            typescript = { tsdk = tsdk_path }
-          } or nil
-        },
+        ts_ls = { binary = "typescript-language-server" },
 
         lua_ls = {
           binary = "lua-language-server",
@@ -305,11 +295,20 @@ in
         if vim.fn.executable(config.binary) == 1 then
           table.insert(active_servers, server_name)
 
-          vim.lsp.config(server_name, {
+          local lsp_opts = {
             capabilities = capabilities,
             settings = config.settings or nil,
-            init_options = config.init_options or nil,
-          })
+          }
+
+          if vim.env.TSDK_PATH and (server_name == "astro" or server_name == "ts_ls") then
+            lsp_opts.init_options = {
+              typescript = {
+                tsdk = vim.env.TSDK_PATH
+              },
+            }
+          end
+
+          vim.lsp.config(server_name, lsp_opts)
         end
       end
       
