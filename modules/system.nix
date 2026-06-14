@@ -5,6 +5,7 @@
     fzf
     imagemagick
     lazygit
+    nmap
     typst
     qemu
     ripgrep
