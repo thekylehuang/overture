@@ -3,6 +3,7 @@
     btop
     ffmpeg
     fzf
+    ghostty-bin
     imagemagick
     lazygit
     nmap
