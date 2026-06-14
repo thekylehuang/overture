@@ -69,6 +69,12 @@
       homebrew = {
         enable = true;
         taps = builtins.attrNames config.nix-homebrew.taps;
+        brews = [
+          "carthage"
+          "swiftformat"
+          "swiftgen"
+          "swiftlint"
+        ];
         onActivation.cleanup = "zap";
       };
     };
