@@ -7,16 +7,24 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
     cole-nvim = {
       url = "github:thekylehuang/cole.nvim";
       flake = false;
     };
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, ... }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, nix-homebrew, homebrew-core, homebrew-cask, ... }:
   let
-    configuration = { pkgs, ... }: {
+    configuration = { pkgs, config, ... }: {
       nixpkgs.overlays = [
         (final: prev: {
           vimPlugins = prev.vimPlugins // {
@@ -45,6 +53,24 @@
         name = "kylehuang";
         home = "/Users/kylehuang";
       };
+
+      nix-homebrew = {
+        enable = true;
+        enableRosetta = true;
+        user = "kylehuang";
+        autoMigrate = true;
+        taps = {
+          "homebrew/homebrew-core" = homebrew-core;
+          "homebrew/homebrew-cask" = homebrew-cask;
+        };
+        mutableTaps = false;
+      };
+
+      homebrew = {
+        enable = true;
+        taps = builtins.attrNames config.nix-homebrew.taps;
+        onActivation.cleanup = "zap";
+      };
     };
   in
   {
@@ -53,6 +79,7 @@
         configuration
         ./modules/system.nix
         home-manager.darwinModules.home-manager
+        nix-homebrew.darwinModules.nix-homebrew
       ];
     };
   };
