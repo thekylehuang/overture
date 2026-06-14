@@ -13,6 +13,7 @@
     russ
     tree-sitter
     uv
+    yt-dlp
   ];
   
   programs.zsh.enable = true;
