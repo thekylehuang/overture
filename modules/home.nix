@@ -207,6 +207,7 @@ in
 
       require("mini.icons").setup()
       require("mini.pairs").setup()
+      require("typst-preview").setup()
 
       require("lualine").setup {
         options = {
