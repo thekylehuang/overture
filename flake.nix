@@ -23,6 +23,12 @@
               name = "cole-nvim";
               src = inputs.cole-nvim;
             };
+            typst-preview-nvim = prev.vimPlugins.typst-preview-nvim.overrideAttrs (old: {
+              postPatch = ''
+                sed -i "s/v0.14.12/v0.14.20/" lua/typst-preview/fetch.lua
+                sed -i "s/'--no-open',/'--no-open',\n    '--verbose',/" lua/typst-preview/servers/factory.lua
+              '';
+            });
           };
         })
       ];
