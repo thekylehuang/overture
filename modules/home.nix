@@ -207,7 +207,12 @@ in
 
       require("mini.icons").setup()
       require("mini.pairs").setup()
-      require("typst-preview").setup()
+      require("typst-preview").setup({
+        dependencies_bin = {
+          tinymist = 'tinymist',
+          websocat = 'websocat',
+        },
+      })
 
       require("lualine").setup {
         options = {
