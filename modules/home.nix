@@ -298,24 +298,22 @@ in
       local active_servers = {}
       
       for server_name, config in pairs(servers) do
-        if vim.fn.executable(config.binary) == 1 then
-          table.insert(active_servers, server_name)
+        table.insert(active_servers, server_name)
 
-          local lsp_opts = {
-            capabilities = capabilities,
-            settings = config.settings or nil,
+        local lsp_opts = {
+          capabilities = capabilities,
+          settings = config.settings or nil,
+        }
+
+        if vim.env.TSDK_PATH and (server_name == "astro" or server_name == "ts_ls") then
+          lsp_opts.init_options = {
+            typescript = {
+              tsdk = vim.env.TSDK_PATH
+            },
           }
-
-          if vim.env.TSDK_PATH and (server_name == "astro" or server_name == "ts_ls") then
-            lsp_opts.init_options = {
-              typescript = {
-                tsdk = vim.env.TSDK_PATH
-              },
-            }
-          end
-
-          vim.lsp.config(server_name, lsp_opts)
         end
+
+        vim.lsp.config(server_name, lsp_opts)
       end
       
       if #active_servers > 0 then
