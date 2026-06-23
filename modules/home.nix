@@ -339,7 +339,27 @@ in
   };
 
   programs.opencode = {
-    enable = true; 
+    enable = true;
+    settings = {
+      provider = {
+        "llama.cpp" = {
+          npm = "@ai-sdk/openai-compatible";
+          name = "overture-agent (local)";
+          options = {
+            baseURL = "http://127.0.0.1:8080/v1";
+          };
+          models = {
+            "Qwen3.5-35B-A3B-Claude-4.6-Opus-Reasoning-Distilled.Q3_K_M.gguf" = {
+              name = "Qwen3.5-A3B (Opus-Reasoning-Distilled)";
+              limit = {
+                context = 8192;
+                output = 65536;
+              };
+            };
+          };
+        };
+      };
+    };
   };
 
   programs.starship = {
