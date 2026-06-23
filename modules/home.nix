@@ -31,6 +31,14 @@ in
   home.username = "kylehuang";
   home.homeDirectory = "/Users/kylehuang";
   home.enableNixpkgsReleaseCheck = false;
+
+  programs.btop = {
+    enable = true;
+    settings = {
+      theme_background = false;
+      color_theme = "TTY";
+    };
+  };
   
   programs.direnv = {
     enable = true;
@@ -77,6 +85,10 @@ in
     };
   };
 
+  programs.fzf = {
+    enable = true;
+  };
+
   programs.git = {
     enable = true;
     signing = {
@@ -100,6 +112,10 @@ in
   services.gpg-agent = {
     enable = true;
     pinentry.package = pkgs.pinentry-curses;
+  };
+
+  programs.lazygit = {
+    enable = true;
   };
 
   programs.neovim = {
@@ -320,6 +336,10 @@ in
         vim.lsp.enable(active_servers)
       end
     '';
+  };
+
+  programs.opencode = {
+    enable = true; 
   };
 
   programs.starship = {
@@ -599,6 +619,10 @@ in
         show_symlink = true;
       };
     };
+  };
+
+  programs.yt-dlp = {
+    enable = true;
   };
 
   programs.zsh = {

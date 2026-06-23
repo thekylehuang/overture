@@ -1,19 +1,15 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs; [
-    btop
     ffmpeg
-    fzf
     ghostty-bin
     imagemagick
-    lazygit
+    llama-cpp
     nmap
     typst
     qemu
-    ripgrep
     russ
     tree-sitter
     uv
-    yt-dlp
   ];
   
   programs.zsh.enable = true;
