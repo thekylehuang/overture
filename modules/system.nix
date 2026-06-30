@@ -3,6 +3,7 @@
     ffmpeg
     ghostty-bin
     imagemagick
+    just
     nmap
     typst
     qemu
