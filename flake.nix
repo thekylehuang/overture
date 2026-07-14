@@ -12,17 +12,7 @@
   outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, ... }:
   let
     configuration = { pkgs, config, ... }: {
-      nixpkgs.overlays = [
-        (final: prev: {
-          vimPlugins = prev.vimPlugins // {
-            typst-preview-nvim = prev.vimPlugins.typst-preview-nvim.overrideAttrs (old: {
-              postPatch = ''
-                sed -i "s/'--no-open',/'--no-open',\n    '--verbose',/" lua/typst-preview/servers/factory.lua
-              '';
-            });
-          };
-        })
-      ];
+      nixpkgs.overlays = [];
 
       # let Determinate own Nix
       nix.enable = false;
