@@ -342,6 +342,10 @@ in
     enable = true;
   };
 
+  programs.prismlauncher = {
+    enable = true;
+  };
+
   programs.starship = {
     enable = true;
     settings = {
