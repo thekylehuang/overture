@@ -362,10 +362,6 @@ in
     enable = true;
   };
 
-  programs.sioyek = {
-    enable = true;
-  };
-
   programs.starship = {
     enable = true;
     settings = {
