@@ -133,6 +133,7 @@ in
       mini-nvim
 
       (nvim-treesitter.withPlugins (p: with p; [
+        c
         lua
         nix
         python
@@ -299,7 +300,7 @@ in
       local capabilities = require("blink.cmp").get_lsp_capabilities()
       local servers = {
         astro = { binary = "astro-ls" },
-        c = { binary = "clangd" },
+        clangd = { binary = "clangd" },
         pyright = { binary = "pyright" },
         rust_analyzer = { binary = "rust-analyzer" },
         tinymist = { binary = "tinymist" },
