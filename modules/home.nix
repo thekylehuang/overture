@@ -299,6 +299,7 @@ in
       local capabilities = require("blink.cmp").get_lsp_capabilities()
       local servers = {
         astro = { binary = "astro-ls" },
+        c = { binary = "clangd" },
         pyright = { binary = "pyright" },
         rust_analyzer = { binary = "rust-analyzer" },
         tinymist = { binary = "tinymist" },
