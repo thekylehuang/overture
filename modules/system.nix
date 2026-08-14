@@ -8,6 +8,7 @@
     nmap
     typst
     qemu
+    ripgrep
     russ
     tree-sitter
     uv
