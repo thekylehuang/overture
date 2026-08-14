@@ -131,6 +131,7 @@ in
       dashboard-nvim
       friendly-snippets
       mini-nvim
+      nvim-web-devicons
 
       (nvim-treesitter.withPlugins (p: with p; [
         c
@@ -222,7 +223,7 @@ in
       vim.keymap.set("n", "<leader>ff", function() require("fzf-lua").files() end, { desc = "Find files" })
       vim.keymap.set("n", "<leader>fg", function() require("fzf-lua").live_grep() end, { desc = "Live grep" })
 
-      require("mini.icons").setup()
+      require("nvim-web-devicons").setup()
       require("mini.pairs").setup()
       require("typst-preview").setup({
         dependencies_bin = {
