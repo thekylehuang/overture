@@ -5,6 +5,7 @@
     ghostty-bin
     imagemagick
     just
+    llama-cpp
     nmap
     typst
     qemu
