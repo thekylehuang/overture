@@ -342,6 +342,12 @@ in
 
   programs.opencode = {
     enable = true;
+    settings = {
+      permission = {
+        edit = "ask";
+        bash = "ask";
+      };
+    };
   };
 
   programs.prismlauncher = {
