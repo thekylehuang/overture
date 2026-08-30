@@ -1,6 +1,5 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs; [
-    csvlens
     ffmpeg
     ghostty-bin
     imagemagick
