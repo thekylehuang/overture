@@ -417,8 +417,6 @@ in
          
         [mgr]
         cwd = { fg = "${cole.yellow}" }
-        hovered = { fg = "${cole.bg}", bg = "${cole.yellow}", bold = true }
-        preview_hovered = { underline = true }
          
         find_keyword = { fg = "${cole.fg}", bg = "${cole.yellow}", bold = true }
         find_position = { fg = "${cole.blue}", bg = "reset", italic = true }
@@ -524,11 +522,10 @@ in
         separator_style = { fg = "${cole.brightBlack}" }
          
         [help]
-        on = { fg = "${cole.yellow}" }
-        run = { fg = "${cole.blue}" }
-        desc = {}
-        hovered = { fg = "${cole.bg}", bg = "${cole.yellow}", bold = true }
-        footer = { fg = "${cole.bg}", bg = "${cole.white}" }
+        border = { fg = "${cole.border}" }
+        chord = { fg = "${cole.yellow}" }
+        action = { fg = "${cole.blue}" }
+        hovered = { fg = "${cole.bg}", bold = true, bg = "${cole.yellow}" }
          
         [notify]
         title_info = { fg = "${cole.green}" }
@@ -623,6 +620,7 @@ in
     theme = {
       flavor = {
         dark = "cole";
+        light = "cole";
       };
     };
 
