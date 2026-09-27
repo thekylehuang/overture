@@ -4,7 +4,6 @@
     ghostty-bin
     imagemagick
     just
-    logisim-evolution
     nmap
     typst
     qemu
