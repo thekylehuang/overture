@@ -9,7 +9,6 @@
     qemu
     ripgrep
     russ
-    tree-sitter
     uv
   ];
   

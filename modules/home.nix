@@ -133,11 +133,17 @@ in
       mini-nvim
 
       (nvim-treesitter.withPlugins (p: with p; [
+        astro
         c
+        css
+        javascript
         lua
+        markdown
         nix
         python
         rust
+        svelte
+        tsx
         typescript
       ]))
     ];
@@ -303,9 +309,9 @@ in
         clangd = { binary = "clangd" },
         pyright = { binary = "pyright" },
         rust_analyzer = { binary = "rust-analyzer" },
+        svelte = { binary = "svelteserver" },
         tinymist = { binary = "tinymist" },
         ts_ls = { binary = "typescript-language-server" },
-
         lua_ls = {
           binary = "lua-language-server",
           settings = {
@@ -313,11 +319,8 @@ in
           }
         },
       }
-      local active_servers = {}
       
       for server_name, config in pairs(servers) do
-        table.insert(active_servers, server_name)
-
         local lsp_opts = {
           capabilities = capabilities,
           settings = config.settings or nil,
@@ -332,10 +335,10 @@ in
         end
 
         vim.lsp.config(server_name, lsp_opts)
-      end
-      
-      if #active_servers > 0 then
-        vim.lsp.enable(active_servers)
+
+        if vim.fn.executable(config.binary) == 1 then
+          vim.lsp.enable(server_name)
+        end
       end
     '';
   };
