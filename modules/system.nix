@@ -9,7 +9,6 @@
     qemu
     ripgrep
     russ
-    uv
   ];
   
   programs.zsh.enable = true;
