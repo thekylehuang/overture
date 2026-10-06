@@ -42,6 +42,13 @@ in {
     programs.sioyek = {
       enable = true;
       package = sioyek-26;
+      config = {
+        startup_commands = "toggle_dark_mode";
+      };
+      bindings = {
+        "set_mark" = "<unbound>";
+        "fit_to_page_width" = "m";
+      };
     };
   };
   environment.systemPackages = [ sioyek-26 ];
