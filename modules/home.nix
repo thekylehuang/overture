@@ -27,6 +27,9 @@ let
   };
 in
 {
+  targets.darwin.linkApps.enable = false;
+  targets.darwin.copyApps.enable = false;
+
   home.stateVersion = "26.05";
   home.username = "kylehuang";
   home.homeDirectory = "/Users/kylehuang";

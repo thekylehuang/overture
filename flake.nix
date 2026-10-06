@@ -38,6 +38,7 @@
       modules = [
         configuration
         ./modules/system.nix
+        ./modules/sioyek.nix
         home-manager.darwinModules.home-manager
       ];
     };
