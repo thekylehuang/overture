@@ -310,9 +310,11 @@ in
       local servers = {
         astro = { binary = "astro-ls" },
         clangd = { binary = "clangd" },
+        cssls = { binary = "vscode-css-language-server" },
         pyright = { binary = "pyright" },
         rust_analyzer = { binary = "rust-analyzer" },
         svelte = { binary = "svelteserver" },
+        tailwindcss = { binary = "tailwindcss-language-server" },
         tinymist = { binary = "tinymist" },
         ts_ls = { binary = "typescript-language-server" },
         lua_ls = {
