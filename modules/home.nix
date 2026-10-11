@@ -311,6 +311,7 @@ in
         astro = { binary = "astro-ls" },
         clangd = { binary = "clangd" },
         cssls = { binary = "vscode-css-language-server" },
+        denols = { binary = "deno" },
         pyright = { binary = "pyright" },
         rust_analyzer = { binary = "rust-analyzer" },
         svelte = { binary = "svelteserver" },
