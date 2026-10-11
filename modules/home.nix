@@ -307,17 +307,39 @@ in
       }
       
       local capabilities = require("blink.cmp").get_lsp_capabilities()
+      local function is_deno_test(bufnr)
+        return vim.api.nvim_buf_get_name(bufnr):match("%.test%.ts$") ~= nil
+      end
+
       local servers = {
         astro = { binary = "astro-ls" },
         clangd = { binary = "clangd" },
         cssls = { binary = "vscode-css-language-server" },
-        denols = { binary = "deno" },
+        denols = {
+          binary = "deno",
+          root_dir = function(bufnr, on_dir)
+            if is_deno_test(bufnr) then
+              local name = vim.api.nvim_buf_get_name(bufnr)
+              on_dir(vim.fs.root(bufnr, { "deno.json", "deno.jsonc" }) or vim.fs.dirname(name))
+            end
+          end,
+        },
         pyright = { binary = "pyright" },
         rust_analyzer = { binary = "rust-analyzer" },
         svelte = { binary = "svelteserver" },
         tailwindcss = { binary = "tailwindcss-language-server" },
         tinymist = { binary = "tinymist" },
-        ts_ls = { binary = "typescript-language-server" },
+        ts_ls = {
+          binary = "typescript-language-server",
+          root_dir = function(bufnr, on_dir)
+            if is_deno_test(bufnr) then return end
+            local name = vim.api.nvim_buf_get_name(bufnr)
+            on_dir(
+              vim.fs.root(bufnr, { "tsconfig.json", "jsconfig.json", "package.json", ".git" })
+                or vim.fs.dirname(name)
+            )
+          end,
+        },
         lua_ls = {
           binary = "lua-language-server",
           settings = {
@@ -330,6 +352,7 @@ in
         local lsp_opts = {
           capabilities = capabilities,
           settings = config.settings or nil,
+          root_dir = config.root_dir or nil,
         }
 
         if vim.env.TSDK_PATH and (server_name == "astro" or server_name == "ts_ls") then
