@@ -315,31 +315,12 @@ in
         astro = { binary = "astro-ls" },
         clangd = { binary = "clangd" },
         cssls = { binary = "vscode-css-language-server" },
-        denols = {
-          binary = "deno",
-          root_dir = function(bufnr, on_dir)
-            if is_deno_test(bufnr) then
-              local name = vim.api.nvim_buf_get_name(bufnr)
-              on_dir(vim.fs.root(bufnr, { "deno.json", "deno.jsonc" }) or vim.fs.dirname(name))
-            end
-          end,
-        },
         pyright = { binary = "pyright" },
         rust_analyzer = { binary = "rust-analyzer" },
         svelte = { binary = "svelteserver" },
         tailwindcss = { binary = "tailwindcss-language-server" },
         tinymist = { binary = "tinymist" },
-        ts_ls = {
-          binary = "typescript-language-server",
-          root_dir = function(bufnr, on_dir)
-            if is_deno_test(bufnr) then return end
-            local name = vim.api.nvim_buf_get_name(bufnr)
-            on_dir(
-              vim.fs.root(bufnr, { "tsconfig.json", "jsconfig.json", "package.json", ".git" })
-                or vim.fs.dirname(name)
-            )
-          end,
-        },
+        ts_ls = { binary = "typescript-language-server" },
         lua_ls = {
           binary = "lua-language-server",
           settings = {
