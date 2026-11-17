@@ -129,7 +129,6 @@ in
       cole-nvim
       lualine-nvim
       oil-nvim
-      typst-preview-nvim
       fzf-lua
       dashboard-nvim
       friendly-snippets
@@ -233,12 +232,6 @@ in
 
       require("mini.icons").setup()
       require("mini.pairs").setup()
-      require("typst-preview").setup({
-        dependencies_bin = {
-          tinymist = 'tinymist',
-          websocat = 'websocat',
-        },
-      })
 
       require("lualine").setup {
         options = {
@@ -315,6 +308,7 @@ in
         astro = { binary = "astro-ls" },
         clangd = { binary = "clangd" },
         cssls = { binary = "vscode-css-language-server" },
+        nixd = { binary = "nixd" },
         pyright = { binary = "pyright" },
         rust_analyzer = { binary = "rust-analyzer" },
         svelte = { binary = "svelteserver" },
@@ -361,10 +355,6 @@ in
         bash = "ask";
       };
     };
-  };
-
-  programs.prismlauncher = {
-    enable = true;
   };
 
   programs.starship = {

@@ -5,6 +5,7 @@
     imagemagick
     just
     nmap
+    prismlauncher
     typst
     qemu
     ripgrep
