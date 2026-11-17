@@ -6,7 +6,6 @@
     just
     nmap
     prismlauncher
-    typst
     qemu
     ripgrep
     russ
