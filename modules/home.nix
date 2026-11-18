@@ -123,6 +123,7 @@ in
 
   programs.neovim = {
     enable = true;
+
     plugins = with pkgs.vimPlugins; [
       blink-cmp
       nvim-lspconfig
@@ -155,10 +156,15 @@ in
       vim.o.swapfile = false
       vim.g.mapleader = " "
 
-      vim.opt.tabstop = 2
-      vim.opt.shiftwidth = 2
-      vim.opt.expandtab = true
-      vim.opt.softtabstop = 2
+      vim.o.tabstop = 2
+      vim.o.shiftwidth = 2
+      vim.o.expandtab = true
+      vim.o.softtabstop = 2
+
+      vim.o.clipboard = "unnamedplus"
+      vim.o.wrap = true
+      vim.o.linebreak = true
+      vim.o.winborder = "rounded"
 
       vim.api.nvim_create_autocmd("FileType", {
         pattern = { "rust", "python" },
@@ -175,13 +181,7 @@ in
         end,
       })
 
-      vim.opt.clipboard = "unnamedplus"
-      vim.opt.fillchars = { eob = " " }
-
       vim.diagnostic.config({virtual_text = true, signs = false})
-
-      vim.opt.wrap = true
-      vim.opt.linebreak = true
 
       local cole = {
         normal = {
@@ -286,6 +286,13 @@ in
         },
       }
 
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "dashboard",
+        callback = function()
+          vim.wo[0][0].fillchars = "eob: "
+        end,
+      })
+
       vim.api.nvim_set_hl(0, "DashboardHeader", { fg = "${cole.yellow}", bold = true })
       vim.api.nvim_set_hl(0, "DashboardDesc", { fg = "${cole.fg}"})
       vim.api.nvim_set_hl(0, "DashboardKey", { fg = "${cole.red}"})
@@ -294,15 +301,19 @@ in
       require("blink.cmp").setup {
         keymap = { preset = "default" },
         appearance = { nerd_font_variant = "mono" },
-        completion = { documentation = { auto_show = false } },
+        completion = {
+          documentation = { auto_show = true },
+          menu = {
+            scrollbar = false,
+          },
+        },
         snippets = { preset = "default" },
         sources = { default = { "lsp", "path", "snippets", "buffer" } },
       }
+
+      vim.api.nvim_set_hl(0, "Pmenu", { bg = "${cole.bg}", fg = "${cole.fg}" })
       
       local capabilities = require("blink.cmp").get_lsp_capabilities()
-      local function is_deno_test(bufnr)
-        return vim.api.nvim_buf_get_name(bufnr):match("%.test%.ts$") ~= nil
-      end
 
       local servers = {
         astro = { binary = "astro-ls" },
