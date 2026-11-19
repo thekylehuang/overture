@@ -151,20 +151,24 @@ in
       ]))
     ];
     initLua = ''
+      vim.g.mapleader = " "
+      
       vim.o.number = true
       vim.o.relativenumber = true
-      vim.o.swapfile = false
-      vim.g.mapleader = " "
+      vim.o.scrolloff = 8
+      vim.o.winborder = "rounded"
+      
+      vim.o.wrap = true
+      vim.o.linebreak = true
 
       vim.o.tabstop = 2
       vim.o.shiftwidth = 2
-      vim.o.expandtab = true
       vim.o.softtabstop = 2
+      vim.o.expandtab = true
+      vim.o.autoindent = true
 
       vim.o.clipboard = "unnamedplus"
-      vim.o.wrap = true
-      vim.o.linebreak = true
-      vim.o.winborder = "rounded"
+      vim.o.swapfile = false
 
       vim.api.nvim_create_autocmd("FileType", {
         pattern = { "rust", "python" },
