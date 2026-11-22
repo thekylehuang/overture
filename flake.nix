@@ -7,6 +7,10 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    paneru = {
+      url = "github:karinushka/paneru";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, ... }:
@@ -25,6 +29,9 @@
       home-manager.useUserPackages = true;
       home-manager.users.kylehuang = import ./modules/home.nix;
       home-manager.backupFileExtension = "backup";
+      home-manager.sharedModules = [
+        inputs.paneru.homeModules.paneru
+      ];
 
       system.primaryUser = "kylehuang";
       users.users.kylehuang = {

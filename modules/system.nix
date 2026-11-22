@@ -18,6 +18,10 @@
       autohide = true;
       autohide-delay = 0.0;
     };
+
+    CustomUserPreferences.NSGlobalDomain = {
+      NSConvolutionOverride1 = 1.0e-6;
+    };
   };
 
   system.stateVersion = 6;

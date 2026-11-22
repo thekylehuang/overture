@@ -374,6 +374,79 @@ in
     };
   };
 
+  services.paneru = {
+    enable = true;
+    settings = {
+      options = {
+        create_virtual_workspace_automatically = true;
+        reap_empty_workspaces = true;
+        menubar_height = 0;
+        sliver_width = 1;
+        animation_speed = 20.0;
+        focus_follows_mouse = false;
+        mouse_follows_focus = false;
+        preset_column_widths = [ 0.4 0.5 0.6 ];
+      };
+
+      decorations = {
+        workspace_popup_status = false;
+        menu = {
+          enabled = false;
+        };
+      };
+
+      padding = {
+        top = 8;
+        right = 8;
+        bottom = 8;
+        left = 8;
+      };
+
+      bindings = {
+        window_focus_west = "lalt - h";
+        window_focus_east = "lalt - l";
+        window_focus_north = "lalt - k";
+        window_focus_south = "lalt - j";
+
+        window_swap_west = "lalt + shift - h";
+        window_swap_east = "lalt + shift - l";
+
+        window_virtual_north = "lalt + lcmd - k";
+        window_virtual_south = "lalt + lcmd - j";
+        window_virtualmove_north = "lalt + lcmd + lshift - k";
+        window_virtualmove_south = "lalt + lcmd + lshift - j";
+
+        window_center = "lalt - c";
+        window_fullwidth = "lalt - f";
+        window_resize = "lalt - r";
+
+        window_manage = "lalt-v";
+        window_focus_unmanaged = "lalt + shift - v";
+
+        window_copyrule = "lalt - o";
+        quit = "lcmd + lalt - q";
+      };
+
+      windows = {
+        default = {
+          title = ".*";
+          horizontal_padding = 8;
+          vertical_padding = 8;
+        };
+        dialogs = {
+          title = ".*";
+          subrole = "AXDialog";
+          floating = true;
+        };
+        zen-pip = {
+          title = "^Picture-in-Picture$";
+          bundle_id = "app.zen-browser.zen";
+          floating = true;
+        };
+      };
+    };
+  };
+
   programs.starship = {
     enable = true;
     settings = {
