@@ -448,6 +448,11 @@ in
           bundle_id = "com.apple.finder";
           floating = true;
         };
+        logic = {
+          title = "^(Delete|Rename Screenset)$";
+          bundle_id = "com.apple.logic10";
+          floating = true;
+        };
       };
     };
   };
