@@ -443,6 +443,11 @@ in
           bundle_id = "app.zen-browser.zen";
           floating = true;
         };
+        finder-copy = {
+          title = "^Copy$";
+          bundle_id = "com.apple.finder";
+          floating = true;
+        };
       };
     };
   };
