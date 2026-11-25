@@ -453,6 +453,11 @@ in
           bundle_id = "com.apple.logic10";
           floating = true;
         };
+        calendar = {
+          title = "^(.{0,7}|.{9,}|[^C].{7}|C[^a].{6}|Ca[^l].{5}|Cal[^e].{4}|Cale[^n].{3}|Calen[^d].{2}|Calend[^a].|Calenda[^r])$";
+          bundle_id = "com.apple.iCal";
+          floating = true;
+        };
       };
     };
   };
