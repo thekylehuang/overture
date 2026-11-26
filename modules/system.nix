@@ -10,6 +10,7 @@
     qemu
     ripgrep
     russ
+    vulkan-loader
   ];
   
   programs.zsh.enable = true;
