@@ -4,6 +4,7 @@
     ghostty-bin
     imagemagick
     just
+    mesa
     nmap
     prismlauncher
     qemu
